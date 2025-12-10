@@ -4,11 +4,11 @@ This is our first to-do list type website, called "Get Inspir". It’s basically
 As part of a one-month Epitech project, we launched the website during the third week.\
 In this README, you will discover how it works and how to run it.\
 Thank you for your time.\
-Busiris Théo and Slack Simon.
+Théo Busiris and Simon Slack.
 
 ## 🧾 License
 This code is published for demonstration purposes only.  
-© 2025 Théo Busiris — **All rights reserved.**
+© 2025 Théo Busiris / Simon Slack — **All rights reserved.**
 
 ## ⚙️ Tech Stack
 
