@@ -1,0 +1,840 @@
+.backgroundLayer {
+    position: fixed;
+    inset: 0;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    z-index: -1;
+    pointer-events: none;
+}
+
+.body {
+    min-height: 100vh;
+    height: auto;
+    max-width: 100%;
+    z-index: 0;
+    position: relative;
+    overflow-x: hidden;
+    padding-bottom: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.navbar {
+    width: 100%;
+}
+
+.bodyContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.h3 {
+    margin-top: -2%;
+    color: white;
+    font-weight: 600;
+    font-size: 1.5rem;
+    text-shadow: 0 0 8px rgb(54, 54, 54);
+}
+
+.topContainerNoOwn {
+    margin-top: 6.5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.userPicture {
+    width: 18.5%;
+    clip-path: circle();
+    margin-bottom: 5%;
+}
+
+.topButtonContainer {
+    display: flex;
+    gap: .5rem;
+}
+
+.buttonTop, .submit {
+    width: 9vw;
+    height: 2rem;
+    margin-top: 4%;
+    background: rgba(255, 255, 255, 0.34);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.5),
+        inset 0 -1px 0 rgba(255, 255, 255, 0.1),
+        inset 0 0 4px 2px rgba(255, 255, 255, 0.2);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .5rem;
+    color: white;
+    transition: 0.2s ease-in-out;
+}
+
+.buttonTop:hover, .submit:hover {
+    transform: scale(1.025);
+}
+
+.buttonTop > span {
+    text-shadow: 0 0 8px rgb(54, 54, 54);
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+.form {
+    width: 45%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.tasksContainer {
+    width: 100%;
+    margin-top: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.taskCard {
+    width: 100%;
+    min-height: 3rem;
+    background: rgba(255, 255, 255, 0.34);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.5),
+        inset 0 -1px 0 rgba(255, 255, 255, 0.1),
+        inset 0 0 4px 2px rgba(255, 255, 255, 0.2);
+    padding: 1%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 2%;
+    transition: 0.2s ease-in-out;
+    margin-bottom: .5rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.taskCard:hover {
+    transform: scale(1.015);
+}
+
+.taskCard input[type="checkbox"] {
+    width: 2rem;
+    height: 2rem;
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1.5px solid rgba(255, 255, 255, 0.4);
+    border-radius: 4px;
+    box-shadow: 
+        0 2px 8px rgba(0, 0, 0, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3),
+        inset 0 -1px 0 rgba(255, 255, 255, 0.1);
+    transition: all 0.2s ease;
+    position: relative;
+    margin-left: 1%;
+}
+
+.taskCard input[type="checkbox"]:hover {
+    background: rgba(255, 255, 255, 0.3);
+    border-color: rgba(255, 255, 255, 0.5);
+}
+
+.taskCard input[type="checkbox"]:checked {
+    background: rgba(26, 132, 253, 0.4);
+    border-color: rgba(16, 151, 241, 0.6);
+}
+
+.taskCard input[type="checkbox"]:checked::after {
+    content: "✓";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.taskCard > p {
+    margin-left: 1%;
+    color: white;
+    text-shadow: 0 0 8px rgb(54, 54, 54);
+}
+
+.categoriesContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.tasksContainerWithCategories {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.titleCategory {
+    align-self: flex-start;
+    color: white;
+    text-shadow: 0 0 8px rgb(54, 54, 54);
+    font-size: 1.5rem;
+    margin-top: 2%;
+    margin-bottom: 1%;
+}
+
+.topContainerOwn {
+    margin-top: 12vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.topThreeButtons {
+    width: 40%;
+    display: flex;
+    justify-content: center;
+    gap: .5rem;
+}
+
+.topButton {
+    min-width: 8rem;
+    min-height: 2.5rem;
+    background: rgba(255, 255, 255, 0.34);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.5),
+        inset 0 -1px 0 rgba(255, 255, 255, 0.1),
+        inset 0 0 4px 2px rgba(255, 255, 255, 0.2);
+    padding: 1%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10%;
+    transition: 0.2s ease-in-out;
+}
+
+.topButton > span {
+    font-weight: 600;
+    font-size: 1rem;
+    color: white;
+    text-shadow: 0 0 3px rgba(0, 0, 0, 0.8);
+}
+
+.topButton:hover {
+    transform: scale(1.04);
+}
+
+.iconTopThreeButtons {
+    transform: scale(1.5);
+}
+
+.backgroundProgressBar {
+    margin: 1.75rem 0;
+    width: 100%;
+    height: 1.3rem;
+    background: rgba(255, 255, 255, 0.34);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.5),
+        inset 0 -1px 0 rgba(255, 255, 255, 0.1),
+        inset 0 0 4px 2px rgba(255, 255, 255, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+.contentProgressBar {
+    position: absolute;
+    height: 100%;
+    transition: width 0.65s ease-in-out;
+}
+
+.textProgresBar {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    top: 10%;
+    font-size: 0.75rem;
+    font-weight: bold;
+    color: white;
+    text-shadow: 0 0 3px rgba(0, 0, 0, 0.8);
+}
+
+.addModeBackground {
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.371);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.closeIcon {
+    position: fixed;
+    top: 11.75vh;
+    right: 2vh;
+    height: 2.5rem;
+    width: 2.5rem;
+    color: white;
+    transition: 0.2s ease-in-out;
+}
+
+.closeIcon:hover {
+    transform: scale(1.25);
+}
+
+.addModeCard {
+    width: 40%;
+    max-height: 72%;
+    background: rgba(255, 255, 255, 0.34);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.5),
+        inset 0 -1px 0 rgba(255, 255, 255, 0.1),
+        inset 0 0 4px 2px rgba(255, 255, 255, 0.2);
+    padding: 1% 1% 1% 1%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: 0.25s ease-in-out;
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+    overflow-y: scroll; /* Enables scrolling */
+}
+
+.addModeCard::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
+.addModeCard > h2 {
+    color: white;
+    font-weight: 600;
+    text-shadow: 0 0 3px rgba(0, 0, 0, 0.8);
+    margin: 2% 0;
+}
+
+.containerTaskAdd {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+}
+
+.containerTaskAdd h3 {
+    color: white;
+    font-weight: 600;
+    text-shadow: 0 0 3px rgba(0, 0, 0, 0.8);
+}
+
+.containerInput {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.taskButtons {
+    align-self: center;
+    display: flex;
+    gap: 1rem;
+    margin: 2% 0;
+    margin-bottom: 5%;
+}
+
+.doneButton, .removeButton, .notDoneButton {
+    background-color: white;
+    box-shadow: 0 0 8px rgba(54, 54, 54, 0.442);
+    color: rgb(116, 187, 107);
+    font-weight: 600;
+    border: none;
+    height: 1.85rem;
+    width: 4rem;
+    border-radius: 8px;
+    transition: 0.2s ease;
+}
+
+.doneButton:hover, .removeButton:hover, .notDoneButton:hover {
+    transform: scale(1.045);
+}
+
+.removeButton, .notDoneButton {
+    color: rgb(220, 107, 97);
+}
+
+.taskInputLabel, .containerInputTask {
+    background-color: white;
+    box-shadow: 0 0 8px rgba(54, 54, 54, 0.442);
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 2% 3%;
+    margin-top: 2%;
+}
+
+.taskInputLabel input, .containerInputTask select {
+    width: 100%;
+    background-color: transparent;
+    color: black;
+    border: none;
+    outline: none;
+}
+
+.addButton {
+    background-color: white;
+    box-shadow: 0 0 8px rgba(54, 54, 54, 0.442);
+    color: rgb(116, 187, 107);
+    font-weight: 600;
+    border: none;
+    min-height: 2rem;
+    width: 4rem;
+    border-radius: 8px;
+    transition: 0.2s ease;
+}
+
+.addButton:hover {
+    transform: scale(1.075);
+}
+
+.saveButton {
+    position: relative;
+    margin-top: 1.5rem;
+    bottom: 1%;
+    width: 95%;
+    min-height: 2.25rem;
+    background-color: rgb(19, 19, 84);
+    text-shadow: 0 0 3px rgba(0, 0, 0, 0.8);
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: .2s ease-in-out;
+}
+
+.saveButton:hover {
+    transform: scale(1.015);
+}
+
+.noTasks {
+    color: white;
+    font-weight: 600;
+    font-size: 1.35rem;
+    text-shadow: 0 0 3px rgba(0, 0, 0, 0.8);
+    margin: 4% 0 2% 0;
+}
+
+.removeWrapper {
+    position: absolute;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(246, 86, 71, 0.605);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.removeIcon {
+    opacity: 0;
+    color: white;
+    height: 60%;
+    width: 60%;
+}
+
+.removeWrapper:hover {
+    .removeIcon {
+        opacity: 1;
+    }
+}
+
+.confetti {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.commentsHeader {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    position: relative;
+    margin-bottom: 1rem;
+    gap: 1%;
+}
+
+.commentsHeader h2 {
+    color: white;
+    font-weight: 600;
+    text-shadow: 0 0 3px rgba(0, 0, 0, 0.8);
+}
+
+.averageRating {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: white;
+    font-weight: 600;
+    font-size: 1.25rem;
+    text-shadow: 0 0 3px rgba(0, 0, 0, 0.8);
+}
+
+.addCommentButton {
+    position: absolute;
+    right: 0;
+    width: 2.5rem;
+    height: 2.5rem;
+    background: rgba(116, 187, 107, 0.6);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 
+        0 4px 16px rgba(0, 0, 0, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.addCommentButton:hover {
+    transform: scale(1.1);
+    background: rgba(116, 187, 107, 0.8);
+}
+
+.commentForm {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 15px;
+    margin-bottom: 1.5rem;
+}
+
+.ratingContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.ratingContainer label {
+    color: white;
+    font-weight: 600;
+    text-shadow: 0 0 3px rgba(0, 0, 0, 0.8);
+}
+
+.starsContainer {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.starIcon {
+    font-size: 1.5rem;
+    transition: 0.2s ease;
+}
+
+.starIcon:hover {
+    transform: scale(1.2);
+}
+
+.commentInputContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.commentInputContainer label {
+    color: white;
+    font-weight: 600;
+    text-shadow: 0 0 3px rgba(0, 0, 0, 0.8);
+}
+
+.commentInputContainer textarea {
+    width: 100%;
+    min-height: 80px;
+    padding: 0.75rem;
+    background: rgba(255, 255, 255, 0.9);
+    color: black;
+    outline: none;
+    border: none;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+    resize: vertical;
+    font-family: inherit;
+    font-size: 0.95rem;
+}
+
+.submitCommentButton {
+    align-self: center;
+    padding: 0.75rem 2rem;
+    background: rgba(116, 187, 107, 0.7);
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s ease;
+    box-shadow: 
+        0 4px 16px rgba(0, 0, 0, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+.submitCommentButton:hover {
+    transform: scale(1.05);
+    background: rgba(116, 187, 107, 0.9);
+}
+
+.commentsContainer {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-height: 400px;
+    overflow-y: auto;
+    padding-right: 0.5rem;
+}
+
+.commentsContainer::-webkit-scrollbar {
+    width: 8px;
+}
+
+.commentsContainer::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+}
+
+.commentsContainer::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+}
+
+.commentsContainer::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.5);
+}
+
+.commentCard {
+    width: 100%;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(5px);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.commentHeader {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+}
+
+.commentAvatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+}
+
+.commentUserInfo {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.commentUserInfo h4 {
+    color: white;
+    font-weight: 600;
+    font-size: 1rem;
+    margin: 0;
+    text-shadow: 0 0 3px rgba(0, 0, 0, 0.8);
+}
+
+.commentDate {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.8rem;
+    text-shadow: 0 0 3px rgba(0, 0, 0, 0.6);
+}
+
+.commentRating {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    color: white;
+    font-weight: 600;
+}
+
+.ratingStarIcon {
+    color: #ffd700;
+    font-size: 1rem;
+}
+
+.commentDescription {
+    color: white;
+    font-size: 0.95rem;
+    line-height: 1.4;
+    text-shadow: 0 0 3px rgba(0, 0, 0, 0.6);
+    margin: 0;
+}
+
+.noComments {
+    color: white;
+    text-align: center;
+    font-size: 1rem;
+    text-shadow: 0 0 3px rgba(0, 0, 0, 0.8);
+    padding: 2rem;
+}
+
+@media (max-width: 767px) {
+    .topContainerNoOwn {
+        margin-top: 22.5%;
+    }
+
+    .userPicture {
+        width: 22.5%;
+    }
+
+    .buttonTop, .submit {
+        width: 30vw;
+        height: 1.75rem;
+    }
+
+    .form {
+        width: 90%;
+    }
+
+    .tasksContainer {
+        margin-top: 1.75rem;
+    }
+
+    .taskCard > input {
+        margin: 0 2% 0 3.5%;
+    }
+
+    .topThreeButtons {
+        width: 100%;
+        flex-wrap: wrap;
+    }
+
+    .topButton {
+        min-width: 30%;
+        min-height: 2.5rem;
+    }
+
+    .addModeCard {
+        width: 80%;
+        padding: 1% 1% 3% 1%;
+    }
+
+    .userPicture {
+        margin-top: 2%;
+    }
+
+    .commentsHeader > h2 {
+        margin-top: 3%;
+    }
+
+    .closeIcon {
+        right: 1vh;
+    }
+
+    .topContainerOwn {
+        width: 90%;
+    }
+}
+
+@media (min-width: 767px) and (max-width: 1024px) {
+    .topContainerNoOwn {
+        margin-top: 10.5%;
+    }
+
+    .userPicture {
+        width: 18.5%;
+    }
+
+    .buttonTop, .submit {
+        width: 20vw;
+        height: 1.75rem;
+    }
+
+    .form {
+        width: 90%;
+    }
+
+    .tasksContainer {
+        margin-top: 1.75rem;
+    }
+
+    .taskCard > input {
+        margin: 0 2% 0 3.5%;
+    }
+
+    .topThreeButtons {
+        width: 100%;
+        flex-wrap: wrap;
+    }
+
+    .topButton {
+        min-width: 30%;
+        min-height: 2.5rem;
+    }
+
+    .addModeCard {
+        width: 60%;
+        padding: 1% 1% 1.5% 1%;
+    }
+
+    .userPicture {
+        margin-top: 4%;
+    }
+
+    .commentsHeader > h2 {
+        margin-top: 2%;
+    }
+}

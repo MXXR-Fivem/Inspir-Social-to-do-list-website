@@ -1,0 +1,43 @@
+.body {
+    min-height: 100vh;
+    height: auto;
+    max-width: 100%;
+    z-index: 0;
+    position: relative;
+    overflow-x: hidden;
+    padding-bottom: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: url("./images/background3.png") no-repeat center center / cover;
+    z-index: -1;
+    pointer-events: none;
+}
+
+.navbar {
+    width: 100%;
+}
+
+.h1, .h2 {
+    text-align: center;
+    color: white;
+    font-weight: 600;
+    text-shadow: 0 0 8px rgb(54, 54, 54);
+}
+
+.h1 {
+    font-size: 4.5rem;
+    margin-bottom: 2%;
+}
+
+.h2 {
+    font-size: 3rem;
+}

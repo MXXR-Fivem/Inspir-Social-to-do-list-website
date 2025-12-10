@@ -1,0 +1,119 @@
+.body {
+    width: 100%;
+    height: 100vh;
+    background-image: url("./images/background4.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+	flex-direction: column;
+    align-items: center;
+}
+
+.title {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	position: absolute;
+	top: 30vh;
+}
+
+.title h2 {
+	color: white;
+	font-size: 3rem;
+	text-shadow: 0 0 8px black;
+	font-family: var(--font-inter), sans-serif;
+	font-weight: 700;
+}
+
+.title h1 {
+	color: white;
+	font-size: 5rem;
+	text-shadow: 0 0 8px black;
+	font-family: var(--font-inter), sans-serif;
+	font-weight: 900;
+	margin-top: 5%;
+}
+
+@keyframes bounce {
+	0%, 100% {
+		transform: translateY(0);
+	}
+	50% {
+		transform: translateY(-11px);
+	}
+}
+
+.letterBounce {
+	display: inline-block;
+	animation: bounce 2.5s infinite ease-in-out;
+	white-space: pre;
+}
+
+.getStartedBtn {
+	position: absolute;
+	top: 60vh;
+	height: 15%;
+	width: 25%;
+	background: rgba(255, 255, 255, 0.244);
+	backdrop-filter: blur(8px);
+	-webkit-backdrop-filter: blur(8px);
+	border-radius: 15px;
+	border: 1px solid rgba(255, 255, 255, 0.3);
+	box-shadow: 
+		0 8px 32px rgba(0, 0, 0, 0.1),
+		inset 0 1px 0 rgba(255, 255, 255, 0.5),
+		inset 0 -1px 0 rgba(255, 255, 255, 0.1),
+		inset 0 0 4px 2px rgba(255, 255, 255, 0.2);
+	overflow: hidden;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+	transition: 0.2s ease;
+	animation: bounce 3.5s ease-in-out infinite;
+}
+
+.getStartedBtn:hover {
+	transform: scale(1.04);
+}
+
+.getStartedBtn h3 {
+	font-size: 2rem;
+	font-family: var(--font-inter), sans-serif;
+	text-shadow: 0 0 6px rgb(136, 136, 136);
+	color: white;
+}
+
+@media (max-width: 767px) {
+	.title h2 {
+		font-size: 2.85rem;
+		text-align: center;
+		width: 95%;
+	}
+
+	.title h1 {
+		font-size: 4.5rem;
+	}
+
+	.getStartedBtn {
+		width: 55%;
+		height: 13%;
+		top: 60vh
+	}
+}
+
+@media (min-width: 767px) and (max-width: 1024px) {
+	.title h2 {
+		font-size: 2.85rem;
+	}
+
+	.title h1 {
+		font-size: 4.75rem;
+	}
+
+	.getStartedBtn {
+		width: 50%;
+		height: 12%;
+		top: 57.5vh
+	}
+}
