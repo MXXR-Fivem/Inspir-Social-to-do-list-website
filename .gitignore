@@ -56,8 +56,8 @@ backend/sessions/
 
 # pour la prod
 
-backend.Dockerfile
-docker-compose.yml
-*.yml
-frontend.Dockerfile
+# backend.Dockerfile
+# docker-compose.yml
+# *.yml
+# frontend.Dockerfile
 nginx/

@@ -1,0 +1,77 @@
+services:
+  frontend:
+    build:
+      context: .
+      dockerfile: frontend.Dockerfile
+    ports:
+      - "3000:3000"
+    volumes: 
+      - ./frontend:/app
+      - /app/node_modules
+      - /app/.next
+    env_file:
+      - ./.env
+    depends_on: 
+      - backend
+    networks:
+      - toto-network
+
+  backend:
+    build:
+      context: .
+      dockerfile: backend.Dockerfile
+    ports:
+      - "8080:8080"
+    volumes: 
+      - ./backend:/docker-express
+      - /docker-express/node_modules
+      - uploads_data:/docker-express/uploads
+    env_file:
+      - ./.env
+    depends_on: # ne se lance que si :
+      db:
+        condition: service_healthy # la db est "healthy" (lancée)
+    networks:
+      - toto-network
+
+  db:
+    image: mysql:8.0 # image officielle v8 https://hub.docker.com/_/mysql
+    command: --default-authentication-plugin=mysql_native_password
+    environment: # pour le premier démarrage
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+    ports: # host la bdd au port 3036
+      - "3306:3306"
+    volumes:
+      - db_data:/var/lib/mysql # rendre les données persistantes même après redémarrage
+      - ./backend/db/init:/docker-entrypoint-initdb.d # initialiser la db avec le fichier sql dans ./backend/db/init au premier démarrage
+    # https://iamvickyav.medium.com/mysql-init-script-on-docker-compose-e53677102e48
+    healthcheck: # https://stackoverflow.com/questions/42567475/docker-compose-check-if-mysql-connection-is-ready
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"] # commandes à executer pour test
+      interval: 5s # toutes les 5 sec
+      retries: 5 # 5 essais max
+    networks:
+      - toto-network
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin # image officielle phpmyadmin https://hub.docker.com/r/phpmyadmin/phpmyadmin
+    env_file:
+      - ./.env
+    environment: # https://hub.docker.com/r/phpmyadmin/phpmyadmin
+      PMA_HOST: db
+      PMA_PORT: 3306
+      PMA_USER: root
+      PMA_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+    ports: # phpmyadmin accessible via http://localhost:8081
+      - "8081:80"
+    depends_on: # start après mysql
+      - db
+    networks:
+      - toto-network
+
+volumes: # rendre persistantes les data de la db
+  db_data:
+  uploads_data:
+
+networks: # réseau sur le quel il y a tous les services pour qu'ils communiquent
+  toto-network:
